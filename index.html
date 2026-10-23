@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panta × NectarFi Solana Prediction Market Competition — Strategy Hub &amp; EV Calculator</title>
+  <style>
+    :root {
+      --bg: #080b12;
+      --card: #121826;
+      --border: #1e293b;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #a855f7;
+      --green: #22c55e;
+      --amber: #f59e0b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem 1rem 4rem;
+    }
+    .container { max-width: 1080px; margin: 0 auto; }
+    .badge {
+      display: inline-block;
+      background: rgba(168, 85, 247, 0.15);
+      color: #c084fc;
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    h1 { font-size: 2.35rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.75rem; }
+    .subtitle { color: var(--muted); font-size: 1.08rem; max-width: 850px; margin-bottom: 1.75rem; }
+    .links-bar { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2rem; }
+    .links-bar a {
+      background: #1e293b;
+      color: #e2e8f0;
+      text-decoration: none;
+      padding: 0.55rem 1rem;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      border: 1px solid #334155;
+    }
+    .links-bar a.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+    .panel { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; }
+    .panel h2 { font-size: 1.3rem; margin-bottom: 0.75rem; }
+    label { display: block; font-size: 0.84rem; color: var(--muted); margin: 0.7rem 0 0.25rem; font-weight: 600; }
+    input, select {
+      width: 100%;
+      padding: 0.65rem 0.85rem;
+      background: #090d16;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 0.95rem;
+    }
+    .result-box {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: #090d16;
+      border: 1px solid rgba(34, 197, 94, 0.35);
+      border-radius: 10px;
+    }
+    .result-row { display: flex; justify-content: space-between; padding: 0.35rem 0; font-size: 0.92rem; }
+    .result-row strong { color: var(--green); }
+    .market-card {
+      background: #0b101b;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.1rem;
+      margin-bottom: 0.85rem;
+    }
+    .market-card h3 { font-size: 1.02rem; color: #c084fc; margin-bottom: 0.35rem; }
+    .tweet-card {
+      background: #0b101b;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.1rem;
+      margin-bottom: 0.85rem;
+    }
+    .copy-btn {
+      background: #1e293b;
+      color: #f8fafc;
+      border: 1px solid #334155;
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.78rem;
+      float: right;
+    }
+    footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); font-size: 0.85rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <span class="badge">Superteam Earn Global Bounty · @PantaHQ × @Nectar_finance × @SuperteamNG · #PantaMarkets</span>
+    <h1>Panta × NectarFi Solana Prediction Market Competition Hub</h1>
+    <p class="subtitle">
+      <strong>Panta Market</strong> is the permissionless prediction market on Solana where anyone can create markets, trade YES/NO outcomes on real-world events, and earn from market activity. Use this interactive companion to analyze the official <strong>NectarFi × Panta</strong> competition markets, calculate expected value (EV) &amp; Kelly sizing, and design viral community markets.
+    </p>
+
+    <div class="links-bar">
+      <a class="primary" href="https://go.panta.market/bounty" target="_blank" rel="noopener">🚀 Join on Panta (go.panta.market/bounty)</a>
+      <a href="https://panta.market/market/1P2xG3h3MBtS/will-nectarfi-user-zuby-nzubeezudo-on-x-crack-the-top-5-of-the-leaderboard-in-th" target="_blank" rel="noopener">📈 Trade Qualifying Market 1 (Zuby Top 5)</a>
+      <a href="https://panta.market/market/AHAbHQnTZP5M/will-pdbullbear-top-the-leaderboard-of-the-nectarfi-x-panta-trading-competition" target="_blank" rel="noopener">🏆 Trade Qualifying Market 2 (@pdbullbear #1)</a>
+      <a href="https://x.com/PantaHQ/status/2109575490516201680?s=20" target="_blank" rel="noopener">🐦 Official Announcement on X</a>
+    </div>
+
+    <div class="grid-2">
+      <div class="panel">
+        <h2>📊 YES/NO Prediction Market EV &amp; Kelly Calculator</h2>
+        <label for="marketSelect">Select Qualifying Panta Market</label>
+        <select id="marketSelect" onchange="loadPresetMarket()">
+          <option value="m1">Market 1: Will Zuby (@NzubeEzudo) crack the Top 5 of the NectarFi Leaderboard?</option>
+          <option value="m2">Market 2: Will @pdbullbear top (#1) the NectarFi × Panta Leaderboard?</option>
+          <option value="custom">Custom Community Prediction Market on Panta</option>
+        </select>
+
+        <label for="marketPrice">Current Market YES Share Price ($0.01 – $0.99)</label>
+        <input id="marketPrice" type="number" value="0.38" min="0.01" max="0.99" step="0.01" oninput="calcPantaEV()" />
+
+        <label for="trueProb">Your Estimated True Probability of YES (%)</label>
+        <input id="trueProb" type="number" value="52" min="1" max="99" step="1" oninput="calcPantaEV()" />
+
+        <label for="stakeSize">Trade Size in USDC ($1.00 minimum to qualify)</label>
+        <input id="stakeSize" type="number" value="10" min="1" step="1" oninput="calcPantaEV()" />
+
+        <div class="result-box">
+          <div class="result-row"><span>Market Implied Probability:</span><strong id="outImplied">38.0%</strong></div>
+          <div class="result-row"><span>Recommended Position:</span><strong id="outSide">BUY YES (+14.0% Edge)</strong></div>
+          <div class="result-row"><span>Shares Purchased:</span><strong id="outShares">26.32 shares</strong></div>
+          <div class="result-row"><span>Payout if Correct ($1.00/share):</span><strong id="outPayout">$26.32 (+163.2% ROI)</strong></div>
+          <div class="result-row"><span>Expected Value (EV):</span><strong id="outEV">+$3.68 (+36.8%)</strong></div>
+          <div class="result-row"><span>Half-Kelly Optimal Bankroll Allocation:</span><strong id="outKelly">11.3%</strong></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>🛠️ Permissionless Market Creation Blueprints for Panta</h2>
+        <p style="color:var(--muted);font-size:0.88rem;margin-bottom:0.75rem;">
+          Creating relevant, high-volume markets on Panta earns creator fees and bonus consideration in the NectarFi competition:
+        </p>
+        <div class="market-card">
+          <h3>Blueprint #1: NectarFi Competition Volume Milestone</h3>
+          <p style="font-size:0.88rem;color:var(--muted);"><strong>Question:</strong> Will total cumulative trading volume in the NectarFi × Panta competition exceed $50,000 USDC before November 12, 2026 22:59 UTC?</p>
+          <p style="font-size:0.82rem;color:#22c55e;margin-top:0.35rem;">Resolution Source: Panta Market official leaderboard &amp; on-chain Solana program logs.</p>
+        </div>
+        <div class="market-card">
+          <h3>Blueprint #2: Top Trader Win-Rate Benchmark</h3>
+          <p style="font-size:0.88rem;color:var(--muted);"><strong>Question:</strong> Will the #1 ranked trader on the NectarFi × Panta leaderboard finish with a realized ROI above +250%?</p>
+          <p style="font-size:0.82rem;color:#22c55e;margin-top:0.35rem;">Resolution Source: @PantaHQ &amp; @Nectar_finance final competition recap post.</p>
+        </div>
+        <div class="market-card">
+          <h3>Blueprint #3: Solana Ecosystem Catalyst</h3>
+          <p style="font-size:0.88rem;color:var(--muted);"><strong>Question:</strong> Will Solana daily DEX volume exceed $4.5B on any day during Breakpoint 2026?</p>
+          <p style="font-size:0.82rem;color:#22c55e;margin-top:0.35rem;">Resolution Source: DefiLlama Solana DEX Volume tracker (UTC day close).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>🧵 8-Post Campaign Thread &amp; Quote-Tweet Pack (@PantaHQ × @Nectar_finance × @SuperteamNG)</h2>
+      <div id="pantaThread"></div>
+    </div>
+
+    <footer>
+      <p><strong>Author:</strong> big-chungus (<code>bigchungusai</code>) · <strong>Solana Payout Wallet:</strong> <code>HmrmUuXJiQpgYET15VZYcx5wceSRamjVTsewKqWNL3JC</code> · <strong>EVM Wallet:</strong> <code>0xf36e02A6d81EdDAE7bcEAF6d7c1005099D54F488</code></p>
+    </footer>
+  </div>
+
+  <script>
+    const pantaPosts = [
+      `1/8 Prediction markets on @solana just got a massive competitive upgrade.
+
+@PantaHQ has teamed up with @Nectar_finance and @SuperteamNG for a month-long Trading & Market Creation Competition!
+
+Here is how Panta Market works, how to trade the qualifying markets, and how to maximize your EV on the leaderboard 🧵👇 #PantaMarkets`,
+      `2/8 What is @PantaHQ?
+
+Panta Market is a permissionless prediction market built on Solana.
+• Trade YES or NO shares ($0.01–$0.99) on real-world & crypto events
+• Anyone can create custom markets and earn from trading activity
+• Instant Solana settlement with low fees via https://go.panta.market/bounty #PantaMarkets`,
+      `3/8 Why the @PantaHQ × @Nectar_finance Partnership Matters 🤝
+
+NectarFi brings savings, yield, and active DeFi traders on Solana directly into Panta's social prediction markets—turning community narratives (like who tops the leaderboard!) into liquid, tradable YES/NO markets.`,
+      `4/8 Step-by-Step: How to Qualify in Under 3 Minutes ⚡
+
+1. Sign up via https://go.panta.market/bounty
+2. Trade at least $1 on Qualifying Market 1 (Will Zuby @NzubeEzudo crack the Top 5?): https://panta.market/market/1P2xG3h3MBtS/will-nectarfi-user-zuby-nzubeezudo-on-x-crack-the-top-5-of-the-leaderboard-in-th
+3. Trade at least $1 on Qualifying Market 2 (Will @pdbullbear finish #1?): https://panta.market/market/AHAbHQnTZP5M/will-pdbullbear-top-the-leaderboard-of-the-nectarfi-x-panta-trading-competition`,
+      `5/8 How to Price Leaderboard Markets Like a Quant 📊
+
+In a top-heavy trading competition, a single high-conviction binary resolution can vault a contender into the Top 5 (#Market1), whereas holding #1 (#Market2) requires defending against late-stage variance.
+
+Use our interactive Panta EV & Kelly Calculator to size your YES/NO entries: https://bigchungusai.github.io/panta-nectarfi-solana/`,
+      `6/8 Pro Tip: Create Your Own Markets on @PantaHQ 🛠️
+
+Because Panta is permissionless, you don't just trade—you can launch markets on:
+• NectarFi competition volume milestones
+• Premier League & UCL match outcomes
+• Solana Breakpoint announcements
+
+High-engagement market creators get bonus consideration AND earn from market activity!`,
+      `7/8 Quote-Tweet & Community Amplification 📢
+
+Don't forget to quote-tweet the official announcement from @PantaHQ:
+https://x.com/PantaHQ/status/2109575490516201680?s=20
+
+Share your YES/NO thesis, tag @PantaHQ @Nectar_finance @SuperteamNG, and include #PantaMarkets.`,
+      `8/8 Ready to climb the @PantaHQ × @Nectar_finance leaderboard? 🏆
+
+🚀 Start trading: https://go.panta.market/bounty
+📘 How it works: https://www.panta.market/how-it-works
+🧮 Interactive Strategy & EV Calculator: https://bigchungusai.github.io/panta-nectarfi-solana/
+
+@PantaHQ @Nectar_finance @SuperteamNG #PantaMarkets`
+    ];
+
+    function loadPresetMarket() {
+      const v = document.getElementById('marketSelect').value;
+      if (v === 'm1') {
+        document.getElementById('marketPrice').value = '0.38';
+        document.getElementById('trueProb').value = '52';
+      } else if (v === 'm2') {
+        document.getElementById('marketPrice').value = '0.24';
+        document.getElementById('trueProb').value = '35';
+      } else {
+        document.getElementById('marketPrice').value = '0.50';
+        document.getElementById('trueProb').value = '65';
+      }
+      calcPantaEV();
+    }
+
+    function calcPantaEV() {
+      const p = Math.min(0.99, Math.max(0.01, Number(document.getElementById('marketPrice').value) || 0.38));
+      const q = Math.min(0.99, Math.max(0.01, (Number(document.getElementById('trueProb').value) || 52) / 100));
+      const stake = Math.max(1, Number(document.getElementById('stakeSize').value) || 10);
+
+      const buyYes = q >= p;
+      const entryPrice = buyYes ? p : (1 - p);
+      const winProb = buyYes ? q : (1 - q);
+      const edgePct = (winProb - entryPrice) * 100;
+      const shares = stake / entryPrice;
+      const payout = shares * 1.0;
+      const roi = ((payout - stake) / stake) * 100;
+      const ev = (winProb * (payout - stake)) - ((1 - winProb) * stake);
+      const b = (1 - entryPrice) / entryPrice;
+      const kelly = Math.max(0, ((b * winProb - (1 - winProb)) / b) * 0.5 * 100);
+
+      document.getElementById('outImplied').textContent = (p * 100).toFixed(1) + '% YES / ' + ((1 - p) * 100).toFixed(1) + '% NO';
+      document.getElementById('outSide').textContent = (buyYes ? 'BUY YES' : 'BUY NO') + ' (+' + edgePct.toFixed(1) + '% Edge)';
+      document.getElementById('outShares').textContent = shares.toFixed(2) + ' ' + (buyYes ? 'YES' : 'NO') + ' shares';
+      document.getElementById('outPayout').textContent = '$' + payout.toFixed(2) + ' (+' + roi.toFixed(1) + '% ROI)';
+      document.getElementById('outEV').textContent = (ev >= 0 ? '+$' : '-$') + Math.abs(ev).toFixed(2) + ' (' + ((ev / stake) * 100).toFixed(1) + '%)';
+      document.getElementById('outKelly').textContent = kelly.toFixed(1) + '% of bankroll';
+    }
+
+    function renderPantaThread() {
+      document.getElementById('pantaThread').innerHTML = pantaPosts.map((post, i) => `
+        <div class="tweet-card">
+          <button class="copy-btn" onclick="navigator.clipboard.writeText(pantaPosts[${i}]);this.textContent='Copied!';setTimeout(()=>this.textContent='Copy',1200)">Copy</button>
+          <div style="font-size:0.82rem;color:#c084fc;font-weight:700;margin-bottom:0.35rem;">Post ${i + 1} of ${pantaPosts.length}</div>
+          <div style="white-space:pre-wrap;font-size:0.93rem;">${post}</div>
+        </div>
+      `).join('');
+    }
+
+    calcPantaEV();
+    renderPantaThread();
+  </script>
+</body>
+</html>
